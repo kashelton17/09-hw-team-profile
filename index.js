@@ -2,9 +2,11 @@ const inq = require('inquirer')
 const Intern = require('./utils/js/intern.js')
 const Engineer = require('./utils/js/engineer.js')
 const Manager = require('./utils/js/manager.js')
+const inquirer = require('inquirer')
 
 const manQuestions = ['Enter name of the team manager: ', 'Enter employee ID of team manager:', 'Enter email of team manager:', 'Enter office number of team manager:']
 const teamMembers = []
+
 
 function init() {
     inq
@@ -74,6 +76,15 @@ function getQuestions(role, questions){
                 type: 'input',
                 name: 'id',
                 message: questions[1],
+                validate: id => {
+                        const idMatch = teamMembers.find(member => member.id === id.id)
+                        if (idMatch) {
+                            console.log('Enter valid ID')
+                            return false
+                        } else {
+                            return true
+                        }
+                    }
             },
             {
                 type: 'input',
@@ -98,4 +109,5 @@ function getQuestions(role, questions){
             } 
         })
 }
+
 init()
