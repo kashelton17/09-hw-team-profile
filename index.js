@@ -10,28 +10,29 @@ function init() {
         .prompt([
             {
                 type: 'input',
-                name: 'manager-name',
+                name: 'managerName',
                 message: questions[0],
             },
             {
                 type: 'input',
-                name: 'manager-name',
+                name: 'managerID',
                 message: questions[1],
             },
             {
                 type: 'input',
-                name: 'manager-name',
+                name: 'managerEmail',
                 message: questions[2],
             },
             {
                 type: 'input',
-                name: 'manager-name',
+                name: 'managerOffice',
                 message: questions[3],
             }
         ])
         .then((data) => {
-            const {name,} = new Manager(data)
-            return managerInfo
+            const manager1 = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOffice)
+            console.log(manager1)
+            return manager1
         })
 }
 
@@ -46,8 +47,14 @@ function chooseRole() {
             }
         ])
         .then((data) => {
-            if (data === 'Enginner'){
-
+            if (data.role === 'Enginner' || data.role === 'Intern'){
+                getQuestions(data.role)
+            } else {
+                console.log('team is built')
             }
         })
+}
+
+function getQuestions(role){
+
 }
