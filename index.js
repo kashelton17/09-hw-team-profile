@@ -49,13 +49,14 @@ function chooseRole() {
             }
         ])
         .then((data) => {
-            if (data.role === 'Enginner'){
+            if (data.role === 'Engineer'){
                 const engineerQuestions = [`Enter name of the ${data.role}: `, `Enter employee ID of ${data.role}:`, `Enter email of ${data.role}:`, `Enter GitHub username of ${data.role}:`]
                 getQuestions(data.role, engineerQuestions)
             } else if ( data.role === 'Intern') {
                 const internQuestions = [`Enter name of the ${data.role}: `, `Enter employee ID of ${data.role}:`, `Enter email of ${data.role}:`, `Enter school of ${data.role}:`]
-                getQuestions(data.role, engineerQuestions)
+                getQuestions(data.role, internQuestions)
             } else {
+                console.log(teamMembers)
                 console.log('team is built')
             }
         })
@@ -90,11 +91,11 @@ function getQuestions(role, questions){
                 let engineer = new Engineer(data.name, data.id, data.email, data.other)
                 teamMembers.push(engineer)
                 chooseRole()
-            } else if (role === 'Inter') {
+            } else if (role === 'Intern') {
                 let intern = new Intern(data.name, data.id, data.email, data.other)
                 teamMembers.push(intern)
                 chooseRole()
-            }
+            } 
         })
 }
 init()
