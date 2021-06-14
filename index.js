@@ -2,7 +2,7 @@ const inq = require('inquirer')
 const Intern = require('./utils/js/intern.js')
 const Engineer = require('./utils/js/engineer.js')
 const Manager = require('./utils/js/manager.js')
-const pages = require('./utils/js/pages.js')
+const pages = require('./src/pages.js')
 const fs = require('fs')
 
 const manQuestions = ['Enter name of the team manager: ', 'Enter employee ID of team manager:', 'Enter email of team manager:', 'Enter office number of team manager:']
