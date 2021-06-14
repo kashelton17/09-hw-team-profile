@@ -67,7 +67,12 @@ function chooseRole() {
                 console.log('team is built')
                 let cardsArray = teamMembers.map(member => pages.createCards(member))
                 const cards = cardsArray.join('\n')
-                writeToFile('teamPage.html', cards)
+                let htmlArray = []
+                htmlArray.push(pages.headHTML)
+                htmlArray.push(cards)
+                htmlArray.push(pages.endHTML)
+                const htmlPage = htmlArray.join('\n')
+                writeToFile('teamPage.html', htmlPage)
             }
         })
 }
