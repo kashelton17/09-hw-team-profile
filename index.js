@@ -41,11 +41,11 @@ function init() {
             const manager1 = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOffice)
             console.log(manager1)
             teamMembers.push(manager1)
-            chooseRole()
+            chooseRole(teamMembers)
         })
 }
 
-function chooseRole() {
+function chooseRole(members) {
     inq
         .prompt([
             {
@@ -91,9 +91,9 @@ function getQuestions(role, questions){
                 message: questions[1],
                 validate: id => {
                         const idMatch = teamMembers.find(member => member.id === id.id)
+                        console.log(idMatch)
                         if (idMatch) {
-                            console.log('Enter valid ID')
-                            return false
+                            return 'Enter valid ID'
                         } else {
                             return true
                         }
