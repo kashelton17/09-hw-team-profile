@@ -37,7 +37,7 @@ function createCards(member) {
     } else if (member.github) {
         var role = 'Engineer'
         var other = `Github: ${member.github}`
-        var other2= `https://github.com/${member.github}`
+        var other2= `https://github.com/${member.github}" target="_blank`
         var emoji = '128208'
     }
     var name = member.name
