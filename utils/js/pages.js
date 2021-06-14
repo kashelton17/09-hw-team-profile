@@ -37,7 +37,7 @@ function createCards(member) {
     } else if (member.github) {
         var role = 'Engineer'
         var other = `Github: ${member.github}`
-        var other2= member.github
+        var other2= `https://github.com/${member.github}`
         var emoji = '128208'
     }
     var name = member.name
@@ -48,14 +48,14 @@ function createCards(member) {
                 <div class="card text-center col-lg-6 mb-4 mx-auto" style="width: 18rem; margin-right: 10px;">
                     <div class="card-body">
                         <h5 class="card-title" style="background-color: lightskyblue; padding:10px; margin: 0px;">${name}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted" style="background-color: lightskyblue; padding:10px"><i>&#${emoji}</i>${role}</h6>
-                        <p class="card-text">ID: ${id} </p>
+                        <h6 class="card-subtitle mb-2 text-muted" style="background-color: lightskyblue; padding:10px"><i>&#${emoji} </i>${role}</h6>
+                        <p class="card-text" style='border:.25px solid rgb(201, 216, 231); padding: 10px'>ID: ${id}</p>
                         <ul style="list-style-type: none; margin-left: -15%">
-                            <li>
+                            <li style=" margin-bottom: 15px;border:.25px solid rgb(201, 216, 231); padding: 10px">
                                 <a href="mailto:${email}" class="card-link">Email: ${email}</a>
                             </li>
-                            <li>
-                                <a href="${other2}" class="card-link">${other}</a>
+                            <li style="border:.25px solid rgb(201, 216, 231); padding: 10px">
+                                <a href="${other2}" class="card-link" style='color: black; text-decoration: none;'>${other}</a>
                             </li>
                         </ul>
                     </div>
