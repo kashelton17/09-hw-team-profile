@@ -90,10 +90,9 @@ function getQuestions(role, questions){
                 name: 'id',
                 message: questions[1],
                 validate: id => {
-                        const idMatch = teamMembers.find(member => member.id === id.id)
-                        console.log(idMatch)
+                        const idMatch = teamMembers.find(member => member.id === id)
                         if (idMatch) {
-                            return 'Enter valid ID'
+                            return 'Enter valid ID (Must not match another Employee ID)'
                         } else {
                             return true
                         }
