@@ -9,8 +9,8 @@ const manQuestions = ['Enter name of the team manager: ', 'Enter employee ID of 
 const teamMembers = []
 
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, (err) =>
-    err ? console.log('Error message:',err) : console.log(`${fileName} successfully written!`))
+    fs.writeFile(`./dist/${fileName}`, data, (err) =>
+    err ? console.log('Error message:',err) : console.log(`${fileName} successfully written to the "dist" folder!`))
 }
 
 function init() {
@@ -30,6 +30,14 @@ function init() {
                 type: 'input',
                 name: 'managerEmail',
                 message: manQuestions[2],
+                validate: email => {
+                    var re = /\S+@\S+\.\S+/;
+                    if (re.test(email)) {
+                        return true
+                    } else {
+                        return 'Please enter valid email'
+                    }
+                }
             },
             {
                 type: 'input',
@@ -39,7 +47,6 @@ function init() {
         ])
         .then((data) => {
             const manager1 = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOffice)
-            console.log(manager1)
             teamMembers.push(manager1)
             chooseRole(teamMembers)
         })
@@ -64,7 +71,7 @@ function chooseRole(members) {
                 getQuestions(data.role, internQuestions)
             } else {
                 console.log(teamMembers)
-                console.log('team is built')
+                console.log('Your team is built')
                 let cardsArray = teamMembers.map(member => pages.createCards(member))
                 const cards = cardsArray.join('\n')
                 let htmlArray = []
@@ -102,6 +109,14 @@ function getQuestions(role, questions){
                 type: 'input',
                 name: 'email',
                 message: questions[2],
+                validate: email => {
+                    var re = /\S+@\S+\.\S+/;
+                    if (re.test(email)) {
+                        return true
+                    } else {
+                        return 'Please enter valid email'
+                    }
+                }
             },
             {
                 type: 'input',
