@@ -2,11 +2,16 @@ const inq = require('inquirer')
 const Intern = require('./utils/js/intern.js')
 const Engineer = require('./utils/js/engineer.js')
 const Manager = require('./utils/js/manager.js')
-const inquirer = require('inquirer')
+const pages = require('./utils/js/pages.js')
+const fs = require('fs')
 
 const manQuestions = ['Enter name of the team manager: ', 'Enter employee ID of team manager:', 'Enter email of team manager:', 'Enter office number of team manager:']
 const teamMembers = []
 
+function writeToFile(fileName, data) {
+    fs.writeFile(fileName, data, (err) =>
+    err ? console.log('Error message:',err) : console.log(`${fileName} successfully written!`))
+}
 
 function init() {
     inq
@@ -60,6 +65,9 @@ function chooseRole() {
             } else {
                 console.log(teamMembers)
                 console.log('team is built')
+                let cardsArray = teamMembers.map(member => pages.createCards(member))
+                const cards = cardsArray.join('\n')
+                writeToFile('teamPage.html', cards)
             }
         })
 }
