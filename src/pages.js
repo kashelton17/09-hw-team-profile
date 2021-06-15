@@ -1,3 +1,4 @@
+//adding html strings and variables dynamically to create html page with user input
 const headHTML = `
 <!DOCTYPE html>
 <html lang="en">
