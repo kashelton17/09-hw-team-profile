@@ -5,6 +5,7 @@
  ## Description 
  This application generates an html page based on the input of a user that displays a team with a Employee objects and their information 
  [![Video of application usage](src/previewImage1.png)](https://drive.google.com/file/d/1TydiZnx6zA7-_8_NTG9_Yc_5p46aREyN/preview 'Preview Video')
+ ![Preview Image of application usage](src/previewImage2.png)
 
 
  
